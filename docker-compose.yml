@@ -1,0 +1,119 @@
+version: '3'
+
+networks:
+  rapid-network:
+    driver: bridge
+
+services:
+  rapid-fontend-main:
+    build:
+      context: ./rapid-fontend-main
+      dockerfile: Dockerfile
+    container_name: rapid-fontend-main
+    ports:
+      - "3000:3000"
+    networks:
+      - rapid-network
+    volumes:
+      - ./rapid-fontend-main/data:/app/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  rapid-user-management-main:
+    build:
+      context: ./rapid-user-management-main
+      dockerfile: Dockerfile
+    container_name: rapid-user-management-main
+    ports:
+      - "5000:5000"
+    networks:
+      - rapid-network
+    volumes:
+      - ./rapid-user-management-main/data:/app/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5000 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  rapid-project-management-main:
+    build:
+      context: ./rapid-project-management-main
+      dockerfile: Dockerfile
+    container_name: rapid-project-management-main
+    ports:
+      - "5001:5001"
+    networks:
+      - rapid-network
+    restart: unless-stopped
+
+  rapid-ideation-management-main:
+    build:
+      context: ./rapid-ideation-management-main
+      dockerfile: Dockerfile
+    container_name: rapid-ideation-management-main
+    ports:
+      - "5002:5002"
+    networks:
+      - rapid-network
+    restart: unless-stopped
+
+  rapid-requirements-management-main:
+    build:
+      context: ./rapid-requirements-management-main
+      dockerfile: Dockerfile
+    container_name: rapid-requirements-management-main
+    ports:
+      - "5004:5004"
+    networks:
+      - rapid-network
+    restart: unless-stopped
+
+  rapid-identity-management-main:
+    build:
+      context: ./rapid-identity-management-main
+      dockerfile: Dockerfile
+    container_name: rapid-identity-management-main
+    ports:
+      - "5005:5005"
+    networks:
+      - rapid-network
+    restart: unless-stopped
+
+  rapid-code-management-main:
+    build:
+      context: ./rapid-code-management-main
+      dockerfile: Dockerfile
+    container_name: rapid-code-management-main
+    ports:
+      - "5006:5006"
+    networks:
+      - rapid-network
+    restart: unless-stopped
+
+  rapid-architecture-management-main:
+    build:
+      context: ./rapid-architecture-management-main
+      dockerfile: Dockerfile
+    container_name: rapid-architecture-management-main
+    ports:
+      - "5007:5007"
+    networks:
+      - rapid-network
+    restart: unless-stopped
+
+  rapid-ai-analysis-main:
+    build:
+      context: ./rapid-ai-analysis-main
+      dockerfile: Dockerfile
+    container_name: rapid-ai-analysis-main
+    ports:
+      - "5008:5008"
+    networks:
+      - rapid-network
+    restart: unless-stopped

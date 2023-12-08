@@ -1,0 +1,24 @@
+{
+  "name": "rapid-ideation-management",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SPACCE-IO/rapid-ideation-management.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SPACCE-IO/rapid-ideation-management/issues"
+  },
+  "homepage": "https://github.com/SPACCE-IO/rapid-ideation-management#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
